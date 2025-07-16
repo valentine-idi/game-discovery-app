@@ -1,14 +1,26 @@
-import { Card } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 function App() {
   return (
-    <Card.Root>
-      <Card.Header>
-        <Card.Title>Game Discovery App</Card.Title>
-        <Card.Description>
-          Discover new games and share your favorites with the community.
-        </Card.Description>
-      </Card.Header>
-    </Card.Root>
+    <Grid
+      templateAreas={{
+        base: `"nav" "main"`,
+        lg: `"nav nav" "aside main"`,
+      }}
+    >
+      <GridItem area="nav" bg="coral">
+        Nav
+      </GridItem>
+
+      <Show when={["lg", "xl"]}>
+        <GridItem area="aside" bg="gold">
+          Aside
+        </GridItem>
+      </Show>
+
+      <GridItem area="main" bg="dodgerblue">
+        Main
+      </GridItem>
+    </Grid>
   );
 }
 
