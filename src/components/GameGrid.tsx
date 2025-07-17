@@ -5,8 +5,6 @@ import GameCard from "./GameCard";
 const GameGrid = () => {
   const { games, error, isLoading } = useGames();
 
-  console.log(games);
-
   if (error) return <p>{error}</p>;
 
   if (isLoading) return <p>Loading...</p>;
@@ -14,7 +12,7 @@ const GameGrid = () => {
   return (
     <Grid templateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={6}>
       {games.map((game) => (
-        <GameCard game={game} />
+        <GameCard game={game} key={game.id} />
       ))}
     </Grid>
   );
