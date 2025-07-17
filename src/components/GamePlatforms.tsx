@@ -9,15 +9,16 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { HStack, Icon, Text } from "@chakra-ui/react";
+import { HStack, Icon, Flex, Badge } from "@chakra-ui/react";
 import { type Platforms } from "@/services/gameService";
 import type { IconType } from "react-icons";
 
 interface Props {
   parent_platforms: Platforms[];
+  metacritic: number;
 }
 
-const GamePlatforms = ({ parent_platforms }: Props) => {
+const GamePlatforms = ({ parent_platforms, metacritic }: Props) => {
   const platformIcons: { [key: string]: IconType } = {
     pc: FaWindows,
     linux: FaLinux,
